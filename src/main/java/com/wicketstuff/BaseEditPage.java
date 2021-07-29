@@ -8,15 +8,15 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public class BaseEditPage extends WebPage {
+    protected Form form;
     public BaseEditPage(final PageParameters parameters) {
         super(parameters);
-    }
-
-    protected Form form;
-    @Override
-    protected void onInitialize() {
         WebMarkupContainer parentForm = new WebMarkupContainer("parentForm");
         add(parentForm);
         parentForm.add(form = new Form("form"));
+    }
+    @Override
+    protected void onInitialize() {
+        super.onInitialize();
     }
 }

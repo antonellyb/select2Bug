@@ -1,6 +1,8 @@
 package com.wicketstuff;
 
 import org.apache.wicket.extensions.markup.html.tabs.ITab;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
@@ -29,21 +31,19 @@ public class HomePage extends WebPage {
 		Select2Choice<DictionaryBase> dropDownChoiceWorking = new Select2Choice<DictionaryBase>("choice", null, new DictionaryBaseProvider(choiceList,"project"));
 		dropDownChoiceWorking.getSettings().setMinimumInputLength(0);
 		dropDownChoiceWorking.setRequired(false);
-		dropDownChoiceWorking.getSettings().setDropdownAutoWidth(true);
 		dropDownChoiceWorking.getSettings().setWidth("200px");
 		add(dropDownChoiceWorking);
 
-		Select2Choice<DictionaryBase> dropDownChoiceNotWorking = new Select2Choice<DictionaryBase>("choiceNotWorking", null, new DictionaryBaseProvider(choiceList,"project"));
-		dropDownChoiceNotWorking.getSettings().setMinimumInputLength(0);
-		dropDownChoiceNotWorking.setRequired(false);
-		dropDownChoiceNotWorking.getSettings().setWidth("200px");
-
-
 		List<ITab> tabs = new ArrayList<>();
-		tabs.add(new Tab("Tab 1", new Tab1Panel(dropDownChoiceNotWorking)));
+		tabs.add(new Tab("Tab 1", new Tab1Panel()));
 		tabs.add(new Tab("Tab 2", new Tab2Panel()));
-		//form.add(new FailingTabbedPanel("tabs", tabs));
-		add(new FailingTabbedPanel("tabs", tabs));
+
+		WebMarkupContainer parentForm = new WebMarkupContainer("parentForm");
+		add(parentForm);
+		Form form;
+		parentForm.add(form = new Form("form"));
+		form.add(new FailingTabbedPanel("tabs", tabs));
+		//add(new FailingTabbedPanel("tabs", tabs));
 
 		// TODO Add your page's components here
 

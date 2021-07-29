@@ -7,12 +7,14 @@
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
 	</head>
 	<body>
-		<div id="bd">
 			<h2>Demo application that demonstrates Select2 bug.</h2>
 			<p>
 				Choice works: <select wicket:id="choice"/>
 			</p>
-			<div wicket:id="tabs"></div>
+		<div wicket:id="parentForm">
+			<form wicket:id="form" autocomplete="off" class="editForm">
+				<div wicket:id="tabs"></div>
+			</form>
 		</div>
 	</body>
 </html>
