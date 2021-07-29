@@ -30,12 +30,14 @@ public class HomePage extends WebPage {
 		dropDownChoiceWorking.getSettings().setMinimumInputLength(0);
 		dropDownChoiceWorking.setRequired(false);
 		dropDownChoiceWorking.getSettings().setDropdownAutoWidth(true);
+		dropDownChoiceWorking.getSettings().setWidth("200px");
 		add(dropDownChoiceWorking);
 
 		Select2Choice<DictionaryBase> dropDownChoiceNotWorking = new Select2Choice<DictionaryBase>("choiceNotWorking", null, new DictionaryBaseProvider(choiceList,"project"));
 		dropDownChoiceNotWorking.getSettings().setMinimumInputLength(0);
 		dropDownChoiceNotWorking.setRequired(false);
-		dropDownChoiceNotWorking.getSettings().setDropdownAutoWidth(true);
+		dropDownChoiceNotWorking.getSettings().setWidth("200px");
+
 
 		List<ITab> tabs = new ArrayList<>();
 		tabs.add(new Tab("Tab 1", new Tab1Panel(dropDownChoiceNotWorking)));
