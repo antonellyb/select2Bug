@@ -43,7 +43,8 @@ public class HomePage extends WebPage {
 		Form form;
 		parentForm.add(form = new Form("form"));
 		form.add(new FailingTabbedPanel("tabs", tabs));
-		//add(new FailingTabbedPanel("tabs", tabs));
+		//If I use new TabbedPanel instead of FailingTabbedPanel then SELECT2 works correctly
+		//form.add(new TabbedPanel("tabs", tabs));
 
 		// TODO Add your page's components here
 
