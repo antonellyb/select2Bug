@@ -1,5 +1,5 @@
 # select2Bug
-This application demostrates a bug in org.wicketstuff.select2.Select2Choice component.<br>
+This application demostrates an issue with org.wicketstuff.select2.Select2Choice component.<br>
 Run it with<br>
 mvn:jetty:run<br>
 and open<br>
