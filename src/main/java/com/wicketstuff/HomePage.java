@@ -37,12 +37,11 @@ public class HomePage extends WebPage {
 		List<ITab> tabs = new ArrayList<>();
 		tabs.add(new Tab("Tab 1", new Tab1Panel()));
 		tabs.add(new Tab("Tab 2", new Tab2Panel()));
+		add(new FailingTabbedPanel("tabs", tabs));
 
-		WebMarkupContainer parentForm = new WebMarkupContainer("parentForm");
-		add(parentForm);
-		Form form;
-		parentForm.add(form = new Form("form"));
-		form.add(new FailingTabbedPanel("tabs", tabs));
+
+
+
 		//If I use new TabbedPanel instead of FailingTabbedPanel then SELECT2 works correctly
 		//form.add(new TabbedPanel("tabs", tabs));
 
